@@ -1,9 +1,10 @@
 import React from 'react'
+import DemoContainer from './Components/DemoContainer'
 
 const App = () => {
   return (
-    <div className=' bg'>
-      App
+    <div className='app bg-black h-screen box-border'>
+     <DemoContainer/>
     </div>
   )
 }
