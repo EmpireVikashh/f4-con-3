@@ -2,6 +2,42 @@ import React from 'react'
 import DemoContainer from './Components/DemoContainer'
 
 const App = () => {
+  // Example items (width x height)
+const items = [
+  { width: 200, height: 200 },
+  { width: 100, height: 100 },
+  { width: 125, height: 150 },
+  { width: 350, height: 150 },
+  { width: 275, height: 150 },
+  // Add more items
+];
+// Container dimensions
+const container = { width: 900, height: 300 };
+// Function to check if an item fits in the container
+function doesItemFit(item, container) {
+  return item.width <= container.width && item.height <= container.height;
+}
+// Function to arrange items
+function arrangeItems(items, container) {
+  let arranged = [];
+  let remainingSpace = { width: container.width, height: container.height };
+
+  items.forEach((item) => {
+    if (doesItemFit(item, remainingSpace)) {
+      arranged.push(item);
+      remainingSpace.width -= item.width; // Update remaining width
+      // For simplicity, we're not updating height here
+      // A more complex algorithm would be needed for optimal packing
+    }
+    console.log(remainingSpace);
+  });
+
+  return arranged;
+}
+// Arrange items
+const arrangedItems = arrangeItems(items, container);
+console.log(arrangedItems);
+
   return (
     <div className='app bg-black h-screen box-border'>
      <DemoContainer/>

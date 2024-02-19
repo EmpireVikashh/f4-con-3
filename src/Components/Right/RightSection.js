@@ -18,10 +18,10 @@ const RightSection = () => {
   const [currSize, setCurrSize] = useState(0);
   const { selectContainer } = useData();
   const { containerSize } = useData();
-  console.log(containerSize, currSize, clickItems,selectContainer);
+  // console.log(containerSize, currSize, clickItems,selectContainer);
   useEffect(() => {
     const remainSize = containerSize - currSize ;
-    console.log(remainSize, " remain");
+    // console.log(remainSize, " remain");
     if (currSize > containerSize) {
       window.confirm(`Select item which is less than or equal to ${remainSize} size of item!!`);
       return;
