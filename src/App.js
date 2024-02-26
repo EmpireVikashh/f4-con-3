@@ -12,7 +12,7 @@ const items = [
   // Add more items
 ];
 // Container dimensions
-const container = { width: 900, height: 300 };
+const container = { width: 900, height: 600 };
 // Function to check if an item fits in the container
 function doesItemFit(item, container) {
   return item.width <= container.width && item.height <= container.height;
@@ -25,18 +25,21 @@ function arrangeItems(items, container) {
   items.forEach((item) => {
     if (doesItemFit(item, remainingSpace)) {
       arranged.push(item);
-      remainingSpace.width -= item.width; // Update remaining width
+      remainingSpace.width -= item.width; 
+      // remainingSpace.height -= item.height; 
+      // Update remaining width
       // For simplicity, we're not updating height here
       // A more complex algorithm would be needed for optimal packing
     }
-    console.log(remainingSpace);
+    console.log("items ", item);
+    console.log("Remaining Space : ", remainingSpace);
   });
 
   return arranged;
 }
 // Arrange items
 const arrangedItems = arrangeItems(items, container);
-console.log(arrangedItems);
+console.log("Filled Items : ", arrangedItems);
 
   return (
     <div className='app bg-black h-screen box-border'>
